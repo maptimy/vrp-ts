@@ -1,6 +1,6 @@
 {
   "name": "@maptimy/vrp-ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Typescript wrapper around the reinterpretcat/vrp library",
   "type": "module",
   "files": [
