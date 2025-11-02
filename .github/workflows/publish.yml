@@ -32,6 +32,19 @@ jobs:
           corepack enable
           corepack prepare pnpm@latest --activate
 
+      - name: Install Rust toolchain
+        run: |
+          # Install rustup and the stable toolchain non-interactively
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          rustup default stable
+
+      - name: Install wasm-pack
+        run: |
+          # Ensure cargo environment is loaded and install wasm-pack (no failure if already present)
+          source $HOME/.cargo/env
+          cargo install wasm-pack --locked || true
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
