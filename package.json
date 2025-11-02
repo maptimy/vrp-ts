@@ -1,0 +1,38 @@
+{
+  "name": "@maptimy/vrp-ts",
+  "version": "0.1.0",
+  "description": "Typescript wrapper around the reinterpretcat/vrp library",
+  "type": "module",
+  "files": [
+    "lib",
+    "wasm"
+  ],
+  "module": "lib/index.js",
+  "scripts": {
+    "clean:wasm": "del-cli wasm",
+    "build:wasm": "wasm-pack build ./vrp/vrp-cli --target bundler --no-pack --release --out-dir ../../wasm",
+    "build": "pnpm run clean:wasm && pnpm run build:wasm && pnpm dlx vite build",
+    "prepublish": "pnpm run build"
+  },
+  "keywords": [
+    "VRP",
+    "Vehicle Routing Problem",
+    "Optimization",
+    "Transportation",
+    "Routing",
+    "Planning"
+  ],
+  "author": "Benjamin Trounson",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.19.0",
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.53.3",
+    "@types/node": "^24.9.2",
+    "del-cli": "^7.0.0",
+    "typescript": "^5.9.3",
+    "unplugin-dts": "1.0.0-beta.0",
+    "vite": "^7.1.12",
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vite-plugin-wasm": "^3.5.0"
+  }
+}

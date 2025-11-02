@@ -1,0 +1,3 @@
+[submodule "vrp"]
+	path = vrp
+	url = https://github.com/reinterpretcat/vrp
